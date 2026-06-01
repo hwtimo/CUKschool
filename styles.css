@@ -659,6 +659,14 @@ tbody tr:hover { background: var(--c-bg-sub); }
   border-top: 1px solid rgba(255,255,255,.08);
 }
 .footer__bottom p { font-size: var(--fs-xs); opacity: .45; }
+.footer__admin {
+  margin-left: var(--sp-3);
+  padding-left: var(--sp-3);
+  border-left: 1px solid rgba(255,255,255,.2);
+  opacity: .7;
+  transition: opacity var(--tr-fast);
+}
+.footer__admin:hover { opacity: 1; text-decoration: underline; }
 
 /* ═══════════════════════════════════════════════
    CLASS DETAIL PAGES
