@@ -24,6 +24,7 @@ const i18n = (() => {
     "nav.about.intro":    { ko: "학교 소개",      en: "Introduction" },
     "nav.about.teachers": { ko: "선생님들",       en: "Teachers" },
     "nav.about.schedule": { ko: "학사 일정",      en: "Schedule" },
+    "nav.about.gallery":  { ko: "갤러리",         en: "Gallery" },
     "nav.classes":        { ko: "학급안내",       en: "Classes" },
     "nav.classes.danbi":  { ko: "단비반 (유치)",   en: "Danbi (K)" },
     "nav.classes.hanbyul":{ ko: "한별반 (초급)",   en: "Hanbyul (Beg.)" },
