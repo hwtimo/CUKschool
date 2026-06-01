@@ -61,6 +61,8 @@
 
   /* ── Notices Rendering ─────────────────────────── */
   let noticesData = [];
+  const NOTICES_PAGE_SIZE = 6;
+  const noticesState = { filter: 'all', query: '', visibleCount: NOTICES_PAGE_SIZE, modal: null };
 
   async function initNotices() {
     const grid = document.getElementById('notices-grid');
@@ -77,21 +79,132 @@
       noticesData = [];
     }
 
-    // Sort newest first by date string (YYYY.MM.DD)
     noticesData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-    if (!noticesData.length) {
-      if (grid) grid.innerHTML = '<p style="color:#888;text-align:center;padding:40px 0;">등록된 공지사항이 없습니다.</p>';
-      return;
-    }
-
     injectModalStyles();
-
     const modal = buildModal();
     document.body.appendChild(modal);
+    noticesState.modal = modal;
 
-    if (grid) renderGrid(grid, noticesData, modal, false);
-    if (homeGrid) renderGrid(homeGrid, noticesData.slice(0, 3), modal, true);
+    if (homeGrid) {
+      if (noticesData.length) {
+        renderGrid(homeGrid, noticesData.slice(0, 3), modal, true);
+      } else {
+        homeGrid.innerHTML = `<p class="notices-empty">${i18n.t('home.notices.empty')}</p>`;
+      }
+    }
+
+    if (grid) {
+      buildNoticesToolbar();
+      renderNoticesPage();
+    }
+  }
+
+  function buildNoticesToolbar() {
+    const grid = document.getElementById('notices-grid');
+    if (!grid || document.getElementById('notices-toolbar')) return;
+
+    const toolbar = document.createElement('div');
+    toolbar.id = 'notices-toolbar';
+    toolbar.className = 'notices-toolbar';
+
+    const filters = [
+      { key: 'all',     ko: '전체',     en: 'All' },
+      { key: 'recruit', ko: '학생모집', en: 'Enrollment' },
+      { key: 'event',   ko: '행사',     en: 'Event' },
+      { key: 'info',    ko: '안내',     en: 'Notice' },
+      { key: 'new',     ko: '새소식',   en: 'News' }
+    ];
+    const chips = filters.map(f =>
+      `<button class="filter-chip${f.key === 'all' ? ' is-active' : ''}" data-filter="${f.key}" type="button">
+        <span class="i18n-ko">${f.ko}</span><span class="i18n-en">${f.en}</span>
+      </button>`
+    ).join('');
+
+    toolbar.innerHTML = `
+      <div class="notices-filters" role="group">${chips}</div>
+      <div class="notices-search-wrap">
+        <input type="search" id="notices-search" class="notices-search"
+          placeholder="검색..." aria-label="공지사항 검색">
+      </div>
+    `;
+    grid.parentNode.insertBefore(toolbar, grid);
+
+    // Empty state + more button containers
+    const more = document.createElement('div');
+    more.className = 'notices-more-wrap';
+    more.innerHTML = `<button id="notices-more-btn" class="btn btn--outline" type="button" hidden>
+      <span class="i18n-ko">더 보기</span><span class="i18n-en">Show more</span>
+    </button>`;
+    grid.parentNode.insertBefore(more, grid.nextSibling);
+
+    applyLangVisibility(toolbar, i18n.getLang());
+    applyLangVisibility(more, i18n.getLang());
+
+    // Wire up filter chips
+    toolbar.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        toolbar.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        noticesState.filter = btn.dataset.filter;
+        noticesState.visibleCount = NOTICES_PAGE_SIZE;
+        renderNoticesPage();
+      });
+    });
+
+    // Search input with debounce
+    const search = toolbar.querySelector('#notices-search');
+    const ph = i18n.getLang() === 'ko' ? '검색...' : 'Search...';
+    search.placeholder = ph;
+    let t = null;
+    search.addEventListener('input', () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        noticesState.query = search.value.trim().toLowerCase();
+        noticesState.visibleCount = NOTICES_PAGE_SIZE;
+        renderNoticesPage();
+      }, 150);
+    });
+
+    // More button
+    more.querySelector('#notices-more-btn').addEventListener('click', () => {
+      noticesState.visibleCount += NOTICES_PAGE_SIZE;
+      renderNoticesPage();
+    });
+  }
+
+  function getFilteredNotices() {
+    return noticesData.filter(n => {
+      if (noticesState.filter !== 'all' && n.badge !== noticesState.filter) return false;
+      if (noticesState.query) {
+        const hay = [n.titleKo, n.titleEn, n.summaryKo, n.summaryEn, n.badgeKo, n.badgeEn]
+          .filter(Boolean).join(' ').toLowerCase();
+        if (!hay.includes(noticesState.query)) return false;
+      }
+      return true;
+    });
+  }
+
+  function renderNoticesPage() {
+    const grid = document.getElementById('notices-grid');
+    if (!grid) return;
+    const filtered = getFilteredNotices();
+    const visible = filtered.slice(0, noticesState.visibleCount);
+
+    if (!visible.length) {
+      grid.innerHTML = `<div class="notices-empty">
+        <p><span class="i18n-ko">${noticesState.query || noticesState.filter !== 'all'
+          ? '조건에 맞는 공지사항이 없습니다.' : '등록된 공지사항이 없습니다.'}</span>
+        <span class="i18n-en">${noticesState.query || noticesState.filter !== 'all'
+          ? 'No matching notices.' : 'No notices yet.'}</span></p>
+      </div>`;
+      applyLangVisibility(grid, i18n.getLang());
+    } else {
+      renderGrid(grid, visible, noticesState.modal, false);
+    }
+
+    const moreBtn = document.getElementById('notices-more-btn');
+    if (moreBtn) moreBtn.hidden = visible.length >= filtered.length;
   }
 
   function renderGrid(container, notices, modal, isHome) {
@@ -217,10 +330,15 @@
       const current = i18n.getLang();
       i18n.setLang(current === "ko" ? "en" : "ko");
       // Re-apply lang visibility to dynamically rendered notices
-      ['notices-grid', 'home-notices-grid'].forEach(id => {
+      ['notices-grid', 'home-notices-grid', 'notices-toolbar'].forEach(id => {
         const el = document.getElementById(id);
         if (el) applyLangVisibility(el, i18n.getLang());
       });
+      document.querySelectorAll('.notices-more-wrap').forEach(el =>
+        applyLangVisibility(el, i18n.getLang())
+      );
+      const search = document.getElementById('notices-search');
+      if (search) search.placeholder = i18n.getLang() === 'ko' ? '검색...' : 'Search...';
       // Update open modal if any
       const modal = document.getElementById('noticeModal');
       if (modal && modal.classList.contains('is-open')) {
