@@ -11,10 +11,6 @@
   <link rel="canonical" href="https://cukschool.com/programs.html">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* 고급반 고유 색상 */
-    .program-card__head--goeup { background: #8e44ad; }
-  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -49,104 +45,36 @@
       <div class="grid grid--4" style="margin-bottom:var(--sp-12);">
 
         <!-- 단비반 -->
-        <article class="program-card reveal" id="danbi">
-          <div class="program-card__head program-card__head--danbi">
-            <p class="program-card__name" data-i18n="class.danbi.name">단비반</p>
-            <p class="program-card__level" data-i18n="class.danbi.level">유치</p>
-            <span class="program-card__age" data-i18n="class.danbi.age">만 3 – 5세</span>
-          </div>
-          <div class="program-card__body">
-            <div class="program-card__section">
-              <h4 data-i18n="class.goals">학습 목표</h4>
-              <p style="font-size:var(--fs-sm); color:var(--c-text-2);" data-i18n="class.danbi.goal">놀이 중심 한국어 습득, 흥미 유발</p>
-            </div>
-            <div class="program-card__section">
-              <h4 data-i18n="class.curriculum">주요 커리큘럼</h4>
-              <ul class="program-card__list">
-                <li data-i18n="class.danbi.cur1">오감 발달: 미술·동요·율동을 통한 자연스러운 한국어 노출</li>
-                <li data-i18n="class.danbi.cur2">기초 어휘 습득 및 인사 예절 배우기</li>
-              </ul>
-            </div>
-          </div>
-          <div class="program-card__footer">
-            <a href="danbi.html" class="program-card__link" data-i18n="programs.detail">자세히 보기</a>
-          </div>
-        </article>
+        <a href="danbi.html" class="program-card reveal program-card--danbi" id="danbi">
+          <p class="program-card__name" data-i18n="class.danbi.name">단비반</p>
+          <p class="program-card__level" data-i18n="class.danbi.level">유치</p>
+          <span class="program-card__age" data-i18n="class.danbi.age">만 3 – 5세</span>
+          <span class="program-card__arrow"><span data-i18n="programs.detail">자세히 보기</span> →</span>
+        </a>
 
         <!-- 한별반 -->
-        <article class="program-card reveal reveal-delay-1" id="hanbyul">
-          <div class="program-card__head program-card__head--hanbyul">
-            <p class="program-card__name" data-i18n="class.hanbyul.name">한별반</p>
-            <p class="program-card__level" data-i18n="class.hanbyul.level">초급</p>
-            <span class="program-card__age" data-i18n="class.hanbyul.age">만 6 – 9세</span>
-          </div>
-          <div class="program-card__body">
-            <div class="program-card__section">
-              <h4 data-i18n="class.goals">학습 목표</h4>
-              <p style="font-size:var(--fs-sm); color:var(--c-text-2);" data-i18n="class.hanbyul.goal">한글 자모음 기초 다지기, 읽기/쓰기 완성</p>
-            </div>
-            <div class="program-card__section">
-              <h4 data-i18n="class.curriculum">주요 커리큘럼</h4>
-              <ul class="program-card__list">
-                <li data-i18n="class.hanbyul.cur1">한글 기초: 자모음 원리 이해, 기초 낱말 읽기/쓰기</li>
-                <li data-i18n="class.hanbyul.cur2">일상 생활 회화 및 기초 동화 읽기</li>
-              </ul>
-            </div>
-          </div>
-          <div class="program-card__footer">
-            <a href="hanbyul.html" class="program-card__link" data-i18n="programs.detail">자세히 보기</a>
-          </div>
-        </article>
+        <a href="hanbyul.html" class="program-card reveal reveal-delay-1 program-card--hanbyul" id="hanbyul">
+          <p class="program-card__name" data-i18n="class.hanbyul.name">한별반</p>
+          <p class="program-card__level" data-i18n="class.hanbyul.level">초급</p>
+          <span class="program-card__age" data-i18n="class.hanbyul.age">만 6 – 9세</span>
+          <span class="program-card__arrow"><span data-i18n="programs.detail">자세히 보기</span> →</span>
+        </a>
 
         <!-- 가온반 -->
-        <article class="program-card reveal reveal-delay-2" id="gaon">
-          <div class="program-card__head program-card__head--gaon">
-            <p class="program-card__name" data-i18n="class.gaon.name">가온반</p>
-            <p class="program-card__level" data-i18n="class.gaon.level">청소년</p>
-            <span class="program-card__age" data-i18n="class.gaon.age">만 10 – 14세</span>
-          </div>
-          <div class="program-card__body">
-            <div class="program-card__section">
-              <h4 data-i18n="class.goals">학습 목표</h4>
-              <p style="font-size:var(--fs-sm); color:var(--c-text-2);" data-i18n="class.gaon.goal">이중언어(한·영) 활용 강화, 정체성 확립</p>
-            </div>
-            <div class="program-card__section">
-              <h4 data-i18n="class.curriculum">주요 커리큘럼</h4>
-              <ul class="program-card__list">
-                <li data-i18n="class.gaon.cur1">한국사와 나의 역사 연결하기</li>
-                <li data-i18n="class.gaon.cur2">이중언어 토론 및 프로젝트</li>
-              </ul>
-            </div>
-          </div>
-          <div class="program-card__footer">
-            <a href="gaon.html" class="program-card__link" data-i18n="programs.detail">자세히 보기</a>
-          </div>
-        </article>
+        <a href="gaon.html" class="program-card reveal reveal-delay-2 program-card--gaon" id="gaon">
+          <p class="program-card__name" data-i18n="class.gaon.name">가온반</p>
+          <p class="program-card__level" data-i18n="class.gaon.level">청소년</p>
+          <span class="program-card__age" data-i18n="class.gaon.age">만 10 – 14세</span>
+          <span class="program-card__arrow"><span data-i18n="programs.detail">자세히 보기</span> →</span>
+        </a>
 
         <!-- 고급반 -->
-        <article class="program-card reveal reveal-delay-3" id="goeup">
-          <div class="program-card__head program-card__head--goeup">
-            <p class="program-card__name" data-i18n="class.goeup.name">고급반</p>
-            <p class="program-card__level" data-i18n="class.goeup.level">고급</p>
-            <span class="program-card__age" data-i18n="class.goeup.age">만 15세 이상</span>
-          </div>
-          <div class="program-card__body">
-            <div class="program-card__section">
-              <h4 data-i18n="class.goals">학습 목표</h4>
-              <p style="font-size:var(--fs-sm); color:var(--c-text-2);" data-i18n="class.goeup.goal">심화 한국어 및 문화·역사 학습</p>
-            </div>
-            <div class="program-card__section">
-              <h4 data-i18n="class.curriculum">주요 커리큘럼</h4>
-              <ul class="program-card__list">
-                <li data-i18n="class.goeup.cur1">한국 문학·역사·시사 주제 탐구</li>
-                <li data-i18n="class.goeup.cur2">심화 에세이 및 발표·토론 프로젝트</li>
-              </ul>
-            </div>
-          </div>
-          <div class="program-card__footer">
-            <a href="goeup.html" class="program-card__link" data-i18n="programs.detail">자세히 보기</a>
-          </div>
-        </article>
+        <a href="goeup.html" class="program-card reveal reveal-delay-3 program-card--goeup" id="goeup">
+          <p class="program-card__name" data-i18n="class.goeup.name">고급반</p>
+          <p class="program-card__level" data-i18n="class.goeup.level">고급</p>
+          <span class="program-card__age" data-i18n="class.goeup.age">만 15세 이상</span>
+          <span class="program-card__arrow"><span data-i18n="programs.detail">자세히 보기</span> →</span>
+        </a>
 
       </div><!-- /grid -->
 
