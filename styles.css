@@ -2,7 +2,7 @@
    CUK School — Design System
    ═══════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@500;600;700&display=swap');
 
 /* ── Tokens ──────────────────────────────────── */
 :root {
@@ -19,15 +19,15 @@
 
   --c-text:       #2a2a2a;
   --c-text-2:     #555555;
-  --c-text-3:     #8a8275;
-  --c-border:     #e4dccb;
-  --c-bg:         #fdfbf6;
-  --c-bg-sub:     #f6f0e0;
-  --c-bg-mute:    #ede4cd;
+  --c-text-3:     #8a857a;
+  --c-border:     #ebe6da;
+  --c-bg:         #fefdfa;
+  --c-bg-sub:     #f8f5ec;
+  --c-bg-mute:    #f0ebdc;
 
   /* Typography */
   --f-ko:  'Noto Sans KR', sans-serif;
-  --f-en:  'Outfit', 'Noto Sans KR', sans-serif;
+  --f-en:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   --f-display: 'Noto Serif KR', 'Nanum Myeongjo', 'Noto Sans KR', serif;
 
   --fs-xs:  0.75rem;   /* 12px */
@@ -82,7 +82,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-body[data-lang="en"] { font-family: var(--f-en); }
+body[data-lang="en"] { font-family: var(--f-en); --f-display: var(--f-en); }
 body.nav-open { overflow: hidden; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; transition: color var(--tr-fast); }
