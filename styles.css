@@ -261,16 +261,14 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--f-display); line-height: var(--lh-tight);
   margin-bottom: var(--sp-3);
 }
 .hero__sub { font-size: var(--fs-base); opacity: .8; }
-.hero__tagline {
-  margin: var(--sp-8) auto; max-width: 640px;
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-  border-radius: var(--r-lg); padding: var(--sp-5) var(--sp-6);
+.hero__slogan {
+  font-family: var(--f-display);
+  font-size: var(--fs-lg); font-weight: 500;
+  opacity: .92;
+  margin: var(--sp-6) auto 0;
+  max-width: 640px;
 }
-.hero__tagline-main {
-  font-size: var(--fs-lg); font-weight: 700; margin-bottom: var(--sp-2);
-}
-.hero__tagline-desc { font-size: var(--fs-sm); opacity: .8; }
-.hero__actions { display: flex; gap: var(--sp-4); justify-content: center; flex-wrap: wrap; margin-top: var(--sp-10); }
+.hero__actions { display: flex; gap: var(--sp-4); justify-content: center; flex-wrap: wrap; margin-top: var(--sp-8); }
 
 /* ═══════════════════════════════════════════════
    BUTTONS

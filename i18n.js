@@ -44,7 +44,7 @@ const i18n = (() => {
     // ── Home — Intro ────────────────────────────────
     "home.intro.title":   { ko: "학교 소개",      en: "About Our School" },
     "home.intro.sub":     { ko: "교육목표 및 비전", en: "Mission & Vision" },
-    "home.mission":       { ko: "유니티 코리안 스쿨은 기독교의 정신을 바탕으로 한인 자녀들이 한국어와 문화를 바르게 배우고, 건강한 정체성과 인성을 세워갈 수 있도록 돕는 교육 공동체입니다.", en: "Canada Unity Korean School is an educational community grounded in Christian values, helping Korean-Canadian children learn the Korean language and culture while building a healthy identity and character." },
+    "home.mission":       { ko: "기독교 신앙 안에서 한국어와 문화, 정체성을 함께 배우는 공동체입니다.", en: "A faith-rooted community where Korean language, culture, and identity grow together." },
     "home.info.time.label":    { ko: "수업 시간", en: "Class Time" },
     "home.info.time.val":      { ko: "매주 토요일 오전 9:30 – 12:00", en: "Every Saturday 9:30 AM – 12:00 PM" },
     "home.info.loc.label":     { ko: "위치",     en: "Location" },
