@@ -1,3 +1,12 @@
 {
-  "items": []
+  "items": [
+    {
+      "date": "2026.06.13",
+      "type": "break",
+      "titleKo": "한글학교 종강식",
+      "titleEn": "end of year",
+      "descKo": "종강종강",
+      "descEn": "jongangjongang"
+    }
+  ]
 }
