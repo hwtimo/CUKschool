@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "ko"
+
+site_url: "https://cukschool.com"
+display_url: "https://cukschool.com"
+logo_url: "https://cukschool.com/logo.png"
+
+collections:
+  - name: "notices"
+    label: "공지사항"
+    description: "학교 공지사항을 추가·수정·삭제합니다. 저장하면 약 1~2분 후 사이트에 반영됩니다."
+    files:
+      - name: "notices_list"
+        label: "공지사항 목록"
+        file: "notices.json"
+        format: "json"
+        fields:
+          - name: "items"
+            label: "공지사항"
+            label_singular: "공지"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.titleKo}}"
+            fields:
+              - { name: "id", label: "ID (고유 번호)", widget: "number", value_type: "int", hint: "다른 공지와 겹치지 않는 숫자" }
+              - { name: "date", label: "날짜", widget: "string", hint: "예: 2026.03.14" }
+              - name: "badge"
+                label: "분류 (색상 태그)"
+                widget: "select"
+                options:
+                  - { label: "학생모집 (recruit)", value: "recruit" }
+                  - { label: "새소식 (new)", value: "new" }
+                  - { label: "행사 (event)", value: "event" }
+                  - { label: "안내 (info)", value: "info" }
+              - { name: "badgeKo", label: "분류 라벨 (한글)", widget: "string", hint: "예: 학생모집, 행사, 안내" }
+              - { name: "badgeEn", label: "분류 라벨 (English)", widget: "string", hint: "예: Enrollment, Event, Notice" }
+              - { name: "titleKo", label: "제목 (한글)", widget: "string" }
+              - { name: "titleEn", label: "Title (English)", widget: "string" }
+              - { name: "summaryKo", label: "요약 (한글)", widget: "text", hint: "카드에 보이는 짧은 설명 (1~2 문장)" }
+              - { name: "summaryEn", label: "Summary (English)", widget: "text" }
+              - { name: "image", label: "대표 이미지", widget: "image", required: false, hint: "포스터·사진 (선택)" }
+              - { name: "imageAlt", label: "이미지 설명", widget: "string", required: false }
+              - { name: "detailKo", label: "상세 내용 (한글)", widget: "text", hint: "공지 클릭 시 모달에 나오는 내용. 줄바꿈은 <br>, 단락은 <p>...</p>" }
+              - { name: "detailEn", label: "Details (English)", widget: "text" }

@@ -60,21 +60,37 @@
   }
 
   /* ── Notices Rendering ─────────────────────────── */
-  function initNotices() {
-    if (typeof noticesData === 'undefined' || !noticesData.length) return;
+  let noticesData = [];
+
+  async function initNotices() {
+    const grid = document.getElementById('notices-grid');
+    const homeGrid = document.getElementById('home-notices-grid');
+    if (!grid && !homeGrid) return;
+
+    try {
+      const res = await fetch('/notices.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('fetch failed');
+      const data = await res.json();
+      noticesData = Array.isArray(data.items) ? data.items.slice() : [];
+    } catch (err) {
+      console.error('Failed to load notices:', err);
+      noticesData = [];
+    }
+
+    // Sort newest first by date string (YYYY.MM.DD)
+    noticesData.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    if (!noticesData.length) {
+      if (grid) grid.innerHTML = '<p style="color:#888;text-align:center;padding:40px 0;">등록된 공지사항이 없습니다.</p>';
+      return;
+    }
 
     injectModalStyles();
 
-    // Create modal element
     const modal = buildModal();
     document.body.appendChild(modal);
 
-    // Render on notices page
-    const grid = document.getElementById('notices-grid');
     if (grid) renderGrid(grid, noticesData, modal, false);
-
-    // Render latest 3 on home page
-    const homeGrid = document.getElementById('home-notices-grid');
     if (homeGrid) renderGrid(homeGrid, noticesData.slice(0, 3), modal, true);
   }
 
