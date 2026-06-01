@@ -1,19 +1,33 @@
 {
   "items": [
     {
-      "id": 1,
-      "date": "2026.03.14",
+      "titleEn": "2026–27 Student Enrollment Open",
       "badge": "recruit",
       "badgeKo": "학생모집",
-      "badgeEn": "Enrollment",
-      "titleKo": "2026–27학년 학생 모집 안내",
-      "titleEn": "2026–27 Student Enrollment Open",
       "summaryKo": "캐나다 유니티 코리안 스쿨 랭리 캠퍼스에서 2026–27학년도 신입생을 모집합니다.",
-      "summaryEn": "Canada Unity Korean School (Langley Campus) is now accepting new students for the 2026–27 school year.",
-      "image": "/uploads/27poster.jpg",
+      "badgeEn": "Enrollment",
       "imageAlt": "2026–27학년 학생 모집 포스터",
+      "date": "2026.03.14",
+      "summaryEn": "Canada Unity Korean School (Langley Campus) is now accepting new students for the 2026–27 school year.",
       "detailKo": "<table style=\"width:100%;border-collapse:collapse;font-size:0.95rem;line-height:1.8;\"><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">모집연령</td><td style=\"padding:6px 0;font-weight:600;\">2023년생 ~ Gr. 12</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">수업시간</td><td style=\"padding:6px 0;font-weight:600;\">토요일 오전 9:30 – 12:00 (정오)</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">수강료</td><td style=\"padding:6px 0;font-weight:600;\">입학금 $80 / 등록금(1년 30주) $400 / 둘째 $360</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">수업장소</td><td style=\"padding:6px 0;font-weight:600;\">JL International Education Institute Langley Branch<br><span style=\"font-weight:400;\">8790 204 st. #201, Langley Twp, BC V1M 2Y5</span></td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">개강일</td><td style=\"padding:6px 0;font-weight:600;\">2026년 9월 12일</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">등록문의</td><td style=\"padding:6px 0;font-weight:600;\">778-325-1120 / 604-910-5969</td></tr></table><p style=\"margin-top:16px;font-size:0.9rem;color:#666;\">QR코드를 이용하여 등록해 주세요. 문의는 전화 또는 이메일로 연락 주시기 바랍니다.</p>",
-      "detailEn": "<table style=\"width:100%;border-collapse:collapse;font-size:0.95rem;line-height:1.8;\"><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Ages</td><td style=\"padding:6px 0;font-weight:600;\">Born 2023 – Grade 12</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Class Time</td><td style=\"padding:6px 0;font-weight:600;\">Saturdays 9:30 AM – 12:00 PM (noon)</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Tuition</td><td style=\"padding:6px 0;font-weight:600;\">Registration $80 / Annual (30 weeks) $400 / 2nd child $360</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Location</td><td style=\"padding:6px 0;font-weight:600;\">JL International Education Institute Langley Branch<br><span style=\"font-weight:400;\">8790 204 st. #201, Langley Twp, BC V1M 2Y5</span></td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Start Date</td><td style=\"padding:6px 0;font-weight:600;\">September 12, 2026</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Inquiries</td><td style=\"padding:6px 0;font-weight:600;\">778-325-1120 / 604-910-5969</td></tr></table><p style=\"margin-top:16px;font-size:0.9rem;color:#666;\">Scan the QR code to register. Contact us by phone or email for inquiries.</p>"
+      "detailEn": "<table style=\"width:100%;border-collapse:collapse;font-size:0.95rem;line-height:1.8;\"><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Ages</td><td style=\"padding:6px 0;font-weight:600;\">Born 2023 – Grade 12</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Class Time</td><td style=\"padding:6px 0;font-weight:600;\">Saturdays 9:30 AM – 12:00 PM (noon)</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Tuition</td><td style=\"padding:6px 0;font-weight:600;\">Registration $80 / Annual (30 weeks) $400 / 2nd child $360</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Location</td><td style=\"padding:6px 0;font-weight:600;\">JL International Education Institute Langley Branch<br><span style=\"font-weight:400;\">8790 204 st. #201, Langley Twp, BC V1M 2Y5</span></td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Start Date</td><td style=\"padding:6px 0;font-weight:600;\">September 12, 2026</td></tr><tr><td style=\"padding:6px 12px 6px 0;color:#888;white-space:nowrap;vertical-align:top;\">Inquiries</td><td style=\"padding:6px 0;font-weight:600;\">778-325-1120 / 604-910-5969</td></tr></table><p style=\"margin-top:16px;font-size:0.9rem;color:#666;\">Scan the QR code to register. Contact us by phone or email for inquiries.</p>",
+      "id": 1,
+      "image": "/uploads/27poster.jpg",
+      "titleKo": "2026–27학년 학생 모집 안내"
+    },
+    {
+      "titleEn": "title",
+      "badge": "info",
+      "badgeKo": "test",
+      "summaryKo": "sum",
+      "badgeEn": "test",
+      "imageAlt": "hello",
+      "date": "2026.06.01",
+      "summaryEn": "mary",
+      "detailKo": "detail",
+      "detailEn": "l",
+      "id": 0,
+      "titleKo": "제목"
     }
   ]
 }
