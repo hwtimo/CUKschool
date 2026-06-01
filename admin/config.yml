@@ -47,3 +47,54 @@ collections:
               - { name: "imageAlt", label: "이미지 설명", widget: "string", required: false }
               - { name: "detailKo", label: "상세 내용 (한글)", widget: "text", hint: "공지 클릭 시 모달에 나오는 내용. 줄바꿈은 <br>, 단락은 <p>...</p>" }
               - { name: "detailEn", label: "Details (English)", widget: "text" }
+
+  - name: "gallery"
+    label: "사진 갤러리"
+    description: "학교 활동·행사 사진을 추가합니다. 사진을 업로드하고 캡션만 적으면 끝."
+    files:
+      - name: "gallery_list"
+        label: "갤러리 목록"
+        file: "gallery.json"
+        format: "json"
+        fields:
+          - name: "items"
+            label: "사진"
+            label_singular: "사진"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.captionKo}}"
+            fields:
+              - { name: "id", label: "ID", widget: "number", value_type: "int", required: false }
+              - { name: "date", label: "촬영일", widget: "string", hint: "예: 2026.05.10" }
+              - { name: "image", label: "사진", widget: "image" }
+              - { name: "captionKo", label: "캡션 (한글)", widget: "string", required: false }
+              - { name: "captionEn", label: "Caption (English)", widget: "string", required: false }
+
+  - name: "schedule"
+    label: "학사 일정"
+    description: "연간 학사 일정을 관리합니다. 날짜순으로 자동 정렬됩니다."
+    files:
+      - name: "schedule_list"
+        label: "일정 목록"
+        file: "schedule.json"
+        format: "json"
+        fields:
+          - name: "items"
+            label: "일정"
+            label_singular: "일정"
+            widget: "list"
+            summary: "{{fields.date}} — {{fields.titleKo}}"
+            fields:
+              - { name: "date", label: "날짜", widget: "string", hint: "예: 2026.09.12" }
+              - name: "type"
+                label: "분류"
+                widget: "select"
+                options:
+                  - { label: "수업", value: "class" }
+                  - { label: "방학", value: "break" }
+                  - { label: "행사", value: "event" }
+                  - { label: "시험", value: "exam" }
+                  - { label: "휴일", value: "holiday" }
+              - { name: "titleKo", label: "제목 (한글)", widget: "string" }
+              - { name: "titleEn", label: "Title (English)", widget: "string", required: false }
+              - { name: "descKo", label: "설명 (한글)", widget: "text", required: false }
+              - { name: "descEn", label: "Description (English)", widget: "text", required: false }

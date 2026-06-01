@@ -3,17 +3,20 @@
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>학사 일정 — Schedule | CUK School</title>
   <meta name="description" content="캐나다 유니티 코리안 스쿨 2026 연간 일정.">
+  <meta name="keywords" content="밴쿠버 한글학교, 랭리 한국어 학교, BC 한국어 교육, 한인 학교, 한글학교, Vancouver Korean School, Langley Korean School, BC Korean School">
+  <meta property="og:image" content="https://cukschool.com/hero-bg.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://cukschool.com/schedule.html">
   <link rel="icon" type="image/png" href="favicon.png"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
   <nav class="navbar" role="navigation"><div class="container"><div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="logo.png" alt="CUK School" width="160" height="44"></a>
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="CUK School" width="131" height="44"></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html" class="nav-link" data-i18n="nav.home">홈</a></li>
-      <li class="dropdown"><button class="dropdown-trigger is-active" aria-haspopup="true" data-i18n="nav.about">학교안내 <span class="dropdown-arrow">▾</span></button><div class="dropdown-panel"><a href="programs.html">프로그램</a><a href="teachers.html">선생님들</a><a href="schedule.html">일정</a></div></li>
+      <li class="dropdown"><button class="dropdown-trigger is-active" aria-haspopup="true" data-i18n="nav.about">학교안내 <span class="dropdown-arrow">▾</span></button><div class="dropdown-panel"><a href="programs.html">프로그램</a><a href="teachers.html">선생님들</a><a href="schedule.html">일정</a><a href="gallery.html">갤러리</a></div></li>
       <li class="dropdown"><button class="dropdown-trigger" aria-haspopup="true" data-i18n="nav.classes">학급안내 <span class="dropdown-arrow">▾</span></button><div class="dropdown-panel"><a href="danbi.html">단비반</a><a href="hanbyul.html">한별반</a><a href="gaon.html">가온반</a><a href="goeup.html">고급반</a></div></li>
       <li><a href="registration.html" class="nav-link" data-i18n="nav.register">등록</a></li>
       <li><a href="notices.html" class="nav-link" data-i18n="nav.notices">공지사항</a></li>
@@ -39,11 +42,10 @@
       </div>
     </div>
 
-    <div class="empty-state reveal" style="margin-bottom:var(--sp-10);">
-      <div class="empty-state__icon">📆</div>
-      <p style="font-weight:600;" data-i18n="schedule.calendar">연간 일정표</p>
-      <p class="empty-state__sub" data-i18n="schedule.empty">학사 일정의 자세한 내용은 추후 공지됩니다.</p>
-    </div>
+    <h3 style="text-align:center; font-size:var(--fs-lg); font-weight:700; color:var(--c-primary); margin:var(--sp-10) 0 var(--sp-6);">
+      <span class="i18n-ko">연간 일정</span><span class="i18n-en">Annual Calendar</span>
+    </h3>
+    <div id="schedule-list" class="schedule-list" style="margin-bottom:var(--sp-10);"></div>
 
     <div class="schedule-cta reveal">
       <p data-i18n="schedule.cta">일정 문의는 언제든 연락 주세요.</p>

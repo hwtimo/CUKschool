@@ -330,7 +330,7 @@
       const current = i18n.getLang();
       i18n.setLang(current === "ko" ? "en" : "ko");
       // Re-apply lang visibility to dynamically rendered notices
-      ['notices-grid', 'home-notices-grid', 'notices-toolbar'].forEach(id => {
+      ['notices-grid', 'home-notices-grid', 'notices-toolbar', 'gallery-grid', 'schedule-list'].forEach(id => {
         const el = document.getElementById(id);
         if (el) applyLangVisibility(el, i18n.getLang());
       });
@@ -489,11 +489,126 @@
     });
   }
 
+  /* ── Gallery ────────────────────────────────────── */
+  async function initGallery() {
+    const grid = document.getElementById('gallery-grid');
+    if (!grid) return;
+    let items = [];
+    try {
+      const res = await fetch('/gallery.json', { cache: 'no-cache' });
+      if (res.ok) items = (await res.json()).items || [];
+    } catch {}
+    items.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    if (!items.length) {
+      grid.innerHTML = `<p class="notices-empty">
+        <span class="i18n-ko">사진이 곧 업데이트됩니다.</span>
+        <span class="i18n-en">Photos coming soon.</span></p>`;
+      applyLangVisibility(grid, i18n.getLang());
+      return;
+    }
+
+    injectModalStyles();
+    grid.innerHTML = items.map((g, i) => `
+      <figure class="gallery-card" data-idx="${i}" tabindex="0" role="button"
+        aria-label="${g.captionKo || g.captionEn || ''}">
+        <img src="${g.image}" alt="${g.captionKo || g.captionEn || ''}" loading="lazy">
+        ${g.captionKo || g.captionEn ? `<figcaption>
+          <span class="i18n-ko">${g.captionKo || ''}</span>
+          <span class="i18n-en">${g.captionEn || ''}</span>
+          ${g.date ? `<span class="gallery-card__date">${g.date}</span>` : ''}
+        </figcaption>` : ''}
+      </figure>
+    `).join('');
+    applyLangVisibility(grid, i18n.getLang());
+
+    // Lightbox
+    const lb = document.createElement('div');
+    lb.className = 'notice-modal';
+    lb.innerHTML = `
+      <div class="notice-modal__overlay"></div>
+      <div class="notice-modal__box" style="background:transparent;box-shadow:none;max-width:1000px;">
+        <button class="notice-modal__close" aria-label="닫기" style="background:rgba(255,255,255,.85);">✕</button>
+        <img id="lb-img" style="width:100%;max-height:80vh;object-fit:contain;border-radius:8px;background:#000;">
+        <p id="lb-caption" style="color:#fff;text-align:center;padding:12px;font-size:0.95rem;"></p>
+      </div>`;
+    document.body.appendChild(lb);
+    const close = () => { lb.classList.remove('is-open'); document.body.style.overflow = ''; };
+    lb.querySelector('.notice-modal__overlay').addEventListener('click', close);
+    lb.querySelector('.notice-modal__close').addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+    grid.querySelectorAll('.gallery-card').forEach(card => {
+      const open = () => {
+        const g = items[+card.dataset.idx];
+        lb.querySelector('#lb-img').src = g.image;
+        const cap = i18n.getLang() === 'ko' ? (g.captionKo || '') : (g.captionEn || '');
+        lb.querySelector('#lb-caption').textContent = cap + (g.date ? `  ·  ${g.date}` : '');
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      };
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+      });
+    });
+  }
+
+  /* ── Schedule ───────────────────────────────────── */
+  const TYPE_LABEL = {
+    class:   { ko: '수업', en: 'Class' },
+    break:   { ko: '방학', en: 'Break' },
+    event:   { ko: '행사', en: 'Event' },
+    exam:    { ko: '시험', en: 'Exam' },
+    holiday: { ko: '휴일', en: 'Holiday' }
+  };
+  async function initSchedule() {
+    const list = document.getElementById('schedule-list');
+    if (!list) return;
+    let items = [];
+    try {
+      const res = await fetch('/schedule.json', { cache: 'no-cache' });
+      if (res.ok) items = (await res.json()).items || [];
+    } catch {}
+    items.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+
+    if (!items.length) {
+      list.innerHTML = `<p class="notices-empty">
+        <span class="i18n-ko">학사 일정은 추후 공지됩니다.</span>
+        <span class="i18n-en">Schedule will be announced soon.</span></p>`;
+      applyLangVisibility(list, i18n.getLang());
+      return;
+    }
+
+    list.innerHTML = items.map(s => {
+      const t = TYPE_LABEL[s.type] || { ko: '', en: '' };
+      return `<div class="schedule-row">
+        <div class="schedule-row__date">${s.date || ''}</div>
+        <div class="schedule-row__body">
+          <span class="schedule-tag schedule-tag--${s.type || 'event'}">
+            <span class="i18n-ko">${t.ko}</span><span class="i18n-en">${t.en}</span>
+          </span>
+          <h4 class="schedule-row__title">
+            <span class="i18n-ko">${s.titleKo || ''}</span>
+            <span class="i18n-en">${s.titleEn || s.titleKo || ''}</span>
+          </h4>
+          ${s.descKo || s.descEn ? `<p class="schedule-row__desc">
+            <span class="i18n-ko">${s.descKo || ''}</span>
+            <span class="i18n-en">${s.descEn || ''}</span>
+          </p>` : ''}
+        </div>
+      </div>`;
+    }).join('');
+    applyLangVisibility(list, i18n.getLang());
+  }
+
   /* ── Init ───────────────────────────────────────── */
   document.addEventListener("DOMContentLoaded", () => {
     initLang();
     initNav();
     initNotices();
+    initGallery();
+    initSchedule();
     initContactForm();
     initReveal();
     initFocus();
