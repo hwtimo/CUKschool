@@ -14,20 +14,6 @@
       "id": 1,
       "image": "/uploads/27poster.jpg",
       "titleKo": "2026–27학년 학생 모집 안내"
-    },
-    {
-      "titleEn": "title",
-      "badge": "info",
-      "badgeKo": "test",
-      "summaryKo": "sum",
-      "badgeEn": "test",
-      "imageAlt": "hello",
-      "date": "2026.06.01",
-      "summaryEn": "mary",
-      "detailKo": "detail",
-      "detailEn": "l",
-      "id": 0,
-      "titleKo": "제목"
     }
   ]
 }
