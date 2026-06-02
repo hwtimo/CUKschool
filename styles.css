@@ -671,6 +671,7 @@ tbody tr:hover { background: var(--c-bg-sub); }
   font-size: var(--fs-base); color: var(--c-text-2);
   line-height: var(--lh-loose); max-width: 720px;
 }
+.class-section__text strong { color: var(--c-primary); font-weight: 700; }
 .class-focus-list, .class-activity-list {
   list-style: none; padding: 0;
 }
