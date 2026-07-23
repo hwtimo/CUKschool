@@ -66,8 +66,9 @@
     <div class="hint">불러오는 중입니다 · Loading…</div>
   </div>
 
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://unpkg.com/decap-cms@^3.7.0/dist/decap-cms.js"></script>
+  <!-- DecapBridge PKCE auth — Netlify Identity no longer needed.
+       PKCE requires Decap CMS v3.8.3+. -->
+  <script src="https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js"></script>
   <script>
     (function () {
       var splash = document.getElementById('cuk-splash');
