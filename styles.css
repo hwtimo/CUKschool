@@ -1098,3 +1098,19 @@ tbody tr:hover { background: var(--c-bg-sub); }
 /* ── Footer polish (single-source layout) ──────── */
 .footer__brand .footer__name:last-of-type { opacity: .55; }
 .footer a { transition: color var(--tr-fast); }
+
+/* ── Schedule — "쉬는 날"(방학/휴강) highlighted in red ─── */
+.schedule-row--off .schedule-row__date,
+.schedule-row--off .schedule-row__title {
+  color: var(--c-error);
+}
+.schedule-row--off .schedule-row__desc {
+  color: var(--c-error);
+  opacity: .8;
+}
+/* Keep the pill tag itself legible (light bg + red text works on both) */
+.schedule-tag--break,
+.schedule-tag--holiday {
+  background: #fbdcdc;
+  color: var(--c-error);
+}

@@ -607,7 +607,9 @@
 
     list.innerHTML = items.map(s => {
       const t = TYPE_LABEL[s.type] || { ko: '', en: '' };
-      return `<div class="schedule-row">
+      // "쉬는 날" (break/holiday = no class) gets red emphasis so it's easy to scan.
+      const isOff = s.type === 'break' || s.type === 'holiday';
+      return `<div class="schedule-row${isOff ? ' schedule-row--off' : ''}">
         <div class="schedule-row__date">${s.date || ''}</div>
         <div class="schedule-row__body">
           <span class="schedule-tag schedule-tag--${s.type || 'event'}">

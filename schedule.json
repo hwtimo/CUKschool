@@ -1,3 +1,304 @@
 {
-  "items": []
+  "items": [
+    {
+      "date": "2026.09.12",
+      "type": "event",
+      "titleKo": "개강 및 새 학기 오리엔테이션",
+      "titleEn": "First Day of School & Orientation",
+      "descKo": "1주차",
+      "descEn": "Week 1"
+    },
+    {
+      "date": "2026.09.19",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "2주차",
+      "descEn": "Week 2"
+    },
+    {
+      "date": "2026.09.26",
+      "type": "holiday",
+      "titleKo": "휴강",
+      "titleEn": "No Classes"
+    },
+    {
+      "date": "2026.10.03",
+      "type": "event",
+      "titleKo": "개천절·한글날·추석 문화체험 수업",
+      "titleEn": "Korean Cultural Experience Day (Foundation Day, Hangeul Day, Chuseok)",
+      "descKo": "3주차",
+      "descEn": "Week 3"
+    },
+    {
+      "date": "2026.10.10",
+      "type": "holiday",
+      "titleKo": "추수감사절 휴강",
+      "titleEn": "No Classes — Thanksgiving Weekend"
+    },
+    {
+      "date": "2026.10.17",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "4주차",
+      "descEn": "Week 4"
+    },
+    {
+      "date": "2026.10.24",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "5주차",
+      "descEn": "Week 5"
+    },
+    {
+      "date": "2026.10.31",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "6주차",
+      "descEn": "Week 6"
+    },
+    {
+      "date": "2026.11.07",
+      "type": "holiday",
+      "titleKo": "휴강",
+      "titleEn": "No Classes"
+    },
+    {
+      "date": "2026.11.14",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "7주차",
+      "descEn": "Week 7"
+    },
+    {
+      "date": "2026.11.21",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "8주차",
+      "descEn": "Week 8"
+    },
+    {
+      "date": "2026.11.28",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "9주차",
+      "descEn": "Week 9"
+    },
+    {
+      "date": "2026.12.05",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "10주차",
+      "descEn": "Week 10"
+    },
+    {
+      "date": "2026.12.12",
+      "type": "event",
+      "titleKo": "성탄절 행사 및 겨울방학식",
+      "titleEn": "Christmas Celebration & Last Day Before Winter Break",
+      "descKo": "11주차",
+      "descEn": "Week 11"
+    },
+    {
+      "date": "2026.12.19",
+      "type": "break",
+      "titleKo": "겨울방학",
+      "titleEn": "Winter Break"
+    },
+    {
+      "date": "2026.12.26",
+      "type": "break",
+      "titleKo": "겨울방학",
+      "titleEn": "Winter Break"
+    },
+    {
+      "date": "2027.01.02",
+      "type": "break",
+      "titleKo": "겨울방학",
+      "titleEn": "Winter Break"
+    },
+    {
+      "date": "2027.01.09",
+      "type": "event",
+      "titleKo": "겨울방학 개학 및 정규수업",
+      "titleEn": "Classes Resume After Winter Break",
+      "descKo": "12주차",
+      "descEn": "Week 12"
+    },
+    {
+      "date": "2027.01.16",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "13주차",
+      "descEn": "Week 13"
+    },
+    {
+      "date": "2027.01.23",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "14주차",
+      "descEn": "Week 14"
+    },
+    {
+      "date": "2027.01.30",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "15주차",
+      "descEn": "Week 15"
+    },
+    {
+      "date": "2027.02.06",
+      "type": "event",
+      "titleKo": "설날 전통문화 체험학습",
+      "titleEn": "Lunar New Year Traditional Culture Experience",
+      "descKo": "16주차",
+      "descEn": "Week 16"
+    },
+    {
+      "date": "2027.02.13",
+      "type": "holiday",
+      "titleKo": "휴강",
+      "titleEn": "No Classes"
+    },
+    {
+      "date": "2027.02.20",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "17주차",
+      "descEn": "Week 17"
+    },
+    {
+      "date": "2027.02.27",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "18주차",
+      "descEn": "Week 18"
+    },
+    {
+      "date": "2027.03.06",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "19주차",
+      "descEn": "Week 19"
+    },
+    {
+      "date": "2027.03.13",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "20주차",
+      "descEn": "Week 20"
+    },
+    {
+      "date": "2027.03.20",
+      "type": "break",
+      "titleKo": "봄방학",
+      "titleEn": "Spring Break"
+    },
+    {
+      "date": "2027.03.27",
+      "type": "break",
+      "titleKo": "봄방학",
+      "titleEn": "Spring Break"
+    },
+    {
+      "date": "2027.04.03",
+      "type": "event",
+      "titleKo": "봄방학 개학 및 정규수업",
+      "titleEn": "Classes Resume After Spring Break",
+      "descKo": "21주차",
+      "descEn": "Week 21"
+    },
+    {
+      "date": "2027.04.10",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "22주차",
+      "descEn": "Week 22"
+    },
+    {
+      "date": "2027.04.17",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "23주차",
+      "descEn": "Week 23"
+    },
+    {
+      "date": "2027.04.24",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "24주차",
+      "descEn": "Week 24"
+    },
+    {
+      "date": "2027.05.01",
+      "type": "event",
+      "titleKo": "어린이날 큰잔치",
+      "titleEn": "Children's Day Celebration",
+      "descKo": "25주차",
+      "descEn": "Week 25"
+    },
+    {
+      "date": "2027.05.08",
+      "type": "event",
+      "titleKo": "어머니날 꽃과 카드 만들기",
+      "titleEn": "Mother's Day Flower & Card-Making Activity",
+      "descKo": "26주차",
+      "descEn": "Week 26"
+    },
+    {
+      "date": "2027.05.15",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "27주차",
+      "descEn": "Week 27"
+    },
+    {
+      "date": "2027.05.22",
+      "type": "holiday",
+      "titleKo": "휴강",
+      "titleEn": "No Classes"
+    },
+    {
+      "date": "2027.05.29",
+      "type": "class",
+      "titleKo": "정규수업",
+      "titleEn": "Regular Classes",
+      "descKo": "28주차",
+      "descEn": "Week 28"
+    },
+    {
+      "date": "2027.06.05",
+      "type": "class",
+      "titleKo": "정규수업 및 학기 마무리",
+      "titleEn": "Regular Classes & Year-End Wrap-Up",
+      "descKo": "29주차",
+      "descEn": "Week 29"
+    },
+    {
+      "date": "2027.06.12",
+      "type": "event",
+      "titleKo": "종강식",
+      "titleEn": "Closing Ceremony & Last Day of School",
+      "descKo": "30주차",
+      "descEn": "Week 30"
+    }
+  ]
 }
