@@ -1114,3 +1114,16 @@ tbody tr:hover { background: var(--c-bg-sub); }
   background: #fbdcdc;
   color: var(--c-error);
 }
+
+/* ── Schedule page — "일정 변동 가능" disclaimer banner ─── */
+.schedule-notice {
+  background: var(--c-bg-sub);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-gold);
+  border-radius: var(--r-md);
+  padding: var(--sp-4) var(--sp-5);
+  margin-bottom: var(--sp-6);
+  font-size: var(--fs-sm);
+  color: var(--c-text-2);
+  line-height: 1.7;
+}
