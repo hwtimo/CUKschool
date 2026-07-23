@@ -8,21 +8,21 @@
   <meta property="og:image" content="https://cukschool.com/hero-bg.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://cukschool.com/registration.html">
-  <link rel="icon" type="image/png" href="favicon.png"><link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@500;600;700&display=swap"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
-  <nav class="navbar" role="navigation"><div class="container"><div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="logo.png" alt="CUK School" width="131" height="44"></a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
+  <nav class="navbar" role="navigation" aria-label="Main navigation"><div class="container"><div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Home"><img src="logo.png" alt="CUK School" width="131" height="44"></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link" data-i18n="nav.home">홈</a></li>
-      <li class="dropdown"><button class="dropdown-trigger" aria-haspopup="true" data-i18n="nav.about">학교안내 <span class="dropdown-arrow">▾</span></button><div class="dropdown-panel"><a href="programs.html">프로그램</a><a href="teachers.html">선생님들</a><a href="schedule.html">일정</a><a href="gallery.html">갤러리</a></div></li>
-      <li class="dropdown"><button class="dropdown-trigger" aria-haspopup="true" data-i18n="nav.classes">학급안내 <span class="dropdown-arrow">▾</span></button><div class="dropdown-panel"><a href="danbi.html">단비반</a><a href="hanbyul.html">한별반</a><a href="gaon.html">가온반</a><a href="goeup.html">고급반</a></div></li>
-      <li><a href="registration.html" class="nav-link is-active" data-i18n="nav.register">등록</a></li>
-      <li><a href="notices.html" class="nav-link" data-i18n="nav.notices">공지사항</a></li>
-      <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">연락처</a></li>
-      <li><div class="lang-switch" role="button" aria-label="Toggle language"><button class="lang-btn is-active" data-lang="ko" aria-pressed="true">KO</button><button class="lang-btn" data-lang="en" aria-pressed="false">EN</button></div></li>
+      <li><a href="index.html" class="nav-link" data-nav="index" data-i18n="nav.home">홈</a></li>
+      <li class="dropdown"><button class="dropdown-trigger" data-nav="about" aria-haspopup="true" aria-expanded="false" data-i18n="nav.about">학교안내 <span class="dropdown-arrow" aria-hidden="true">▾</span></button><div class="dropdown-panel" role="menu"><a href="programs.html" role="menuitem" data-nav="programs" data-i18n="nav.about.intro">학교 소개</a><a href="teachers.html" role="menuitem" data-nav="teachers" data-i18n="nav.about.teachers">선생님들</a><a href="schedule.html" role="menuitem" data-nav="schedule" data-i18n="nav.about.schedule">학사 일정</a><a href="gallery.html" role="menuitem" data-nav="gallery" data-i18n="nav.about.gallery">갤러리</a></div></li>
+      <li class="dropdown"><button class="dropdown-trigger" data-nav="classes" aria-haspopup="true" aria-expanded="false" data-i18n="nav.classes">학급안내 <span class="dropdown-arrow" aria-hidden="true">▾</span></button><div class="dropdown-panel" role="menu"><a href="danbi.html" role="menuitem" data-nav="danbi" data-i18n="nav.classes.danbi">단비반 (유치)</a><a href="hanbyul.html" role="menuitem" data-nav="hanbyul" data-i18n="nav.classes.hanbyul">한별반 (초급)</a><a href="gaon.html" role="menuitem" data-nav="gaon" data-i18n="nav.classes.gaon">가온반 (청소년)</a><a href="goeup.html" role="menuitem" data-nav="goeup" data-i18n="nav.classes.goeup">고급반 (고등)</a></div></li>
+      <li><a href="registration.html" class="nav-link" data-nav="registration" data-i18n="nav.register">등록</a></li>
+      <li><a href="notices.html" class="nav-link" data-nav="notices" data-i18n="nav.notices">공지사항</a></li>
+      <li><a href="contact.html" class="nav-link" data-nav="contact" data-i18n="nav.contact">연락처</a></li>
+      <li><div class="lang-switch" role="group" aria-label="Language"><button class="lang-btn is-active" data-lang="ko" aria-pressed="true">KO</button><button class="lang-btn" data-lang="en" aria-pressed="false">EN</button></div></li>
     </ul>
   </div></div></nav>
 
@@ -109,11 +109,34 @@
     </div>
   </div></section></main>
 
-  <footer class="footer"><div class="container"><div class="footer__grid">
-    <div><img src="logo.png" alt="CUK School" class="footer__logo"><p class="footer__name">캐나다 유니티 코리안 스쿨</p></div>
-    <div><h4>Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="programs.html">Programs</a></li><li><a href="registration.html">Registration</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><h4>Contact</h4><p>📞 778-325-1120</p><p>📧 cukschool2026@gmail.com</p></div>
-  </div><div class="footer__bottom"><p>&copy; 2026 Canada Unity Korean School. <a href="/admin/" class="footer__admin">관리자</a></p></div></div></footer>
+  <footer class="footer" role="contentinfo"><div class="container">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <img src="logo.png" alt="CUK School" class="footer__logo" width="160" height="44">
+      <p class="footer__name">캐나다 유니티 코리안 스쿨</p>
+      <p class="footer__name">Canada Unity Korean School</p>
+    </div>
+    <div>
+      <h4 data-i18n="footer.links">바로가기</h4>
+      <ul>
+        <li><a href="index.html" data-i18n="nav.home">홈</a></li>
+        <li><a href="programs.html" data-i18n="nav.about.intro">학교 소개</a></li>
+        <li><a href="registration.html" data-i18n="nav.register">등록</a></li>
+        <li><a href="notices.html" data-i18n="nav.notices">공지사항</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">연락처</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer.contact">연락처</h4>
+      <p><a href="tel:778-325-1120">778-325-1120</a></p>
+      <p><a href="mailto:cukschool2026@gmail.com">cukschool2026@gmail.com</a></p>
+      <p>8790 204 Street #201<br>Langley Twp, BC V1M 2Y5</p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>&copy; 2026 Canada Unity Korean School. <a href="/admin/" class="footer__admin" data-i18n="footer.admin">관리자</a></p>
+  </div>
+</div></footer>
   <script src="i18n.js"></script><script src="main.js"></script>
 </body>
 </html>

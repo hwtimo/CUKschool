@@ -2,7 +2,9 @@
    CUK School — Design System
    ═══════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@500;600;700&display=swap');
+/* Fonts are loaded via <link rel="preconnect"> + <link rel="stylesheet"> in each
+   page <head> (injected by build.mjs) — faster than @import (non-render-blocking
+   preconnect). Do not re-add @import here. */
 
 /* ── Tokens ──────────────────────────────────── */
 :root {
@@ -234,6 +236,14 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--f-display); line-height: var(--lh-tight);
   background: linear-gradient(135deg, rgba(26,53,120,.88), rgba(15,32,80,.75)),
               url('hero-bg.jpg') center/cover no-repeat;
   background-color: var(--c-primary);
+}
+/* Prefer WebP (≈67KB vs 236KB JPG) where supported; JPG stays as fallback above */
+@supports (background: image-set(url('hero-bg.webp') type('image/webp'))) {
+  .hero {
+    background: linear-gradient(135deg, rgba(26,53,120,.88), rgba(15,32,80,.75)),
+                image-set(url('hero-bg.webp') type('image/webp'),
+                          url('hero-bg.jpg') type('image/jpeg')) center/cover no-repeat;
+    background-color: var(--c-primary);
   color: #fff; text-align: center;
   padding: var(--sp-24) 0 calc(var(--sp-24) + 20px);
   position: relative;
@@ -964,3 +974,127 @@ tbody tr:hover { background: var(--c-bg-sub); }
   .notices-toolbar { flex-direction: column; align-items: stretch; }
   .notices-search-wrap { flex: 1 1 auto; }
 }
+
+/* ═══════════════════════════════════════════════
+   ENHANCEMENTS (2026 redesign) — appended; overrides above
+   ═══════════════════════════════════════════════ */
+
+/* goeup header accent — consolidated here (was inline in goeup.html);
+   matches the purple program-card--goeup border */
+.page-header--goeup { background: linear-gradient(135deg, #6c3483 0%, #8e44ad 100%); }
+
+/* ── Notice cards — richer, more tactile ───────── */
+.notice-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-sm);
+  background: var(--c-bg);
+  transition: transform var(--tr-base), box-shadow var(--tr-base), border-color var(--tr-base);
+}
+.notice-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-xl);
+  border-color: transparent;
+}
+.notice-card:focus-visible {
+  outline: 3px solid var(--c-primary-l);
+  outline-offset: 2px;
+}
+.notice-card__img {
+  height: 190px;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  overflow: hidden;
+}
+.notice-card__img img {
+  transition: transform .5s ease;
+}
+.notice-card:hover .notice-card__img img { transform: scale(1.05); }
+
+.notice-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--sp-5) var(--sp-5) var(--sp-6);
+}
+.notice-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+.notice-card__body h4 {
+  font-family: var(--f-display);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--c-text);
+  margin: 0 0 var(--sp-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.notice-card__body p {
+  color: var(--c-text-2);
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  margin: 0 0 var(--sp-4);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.notice-card__date {
+  font-size: var(--fs-xs);
+  color: var(--c-text-3);
+  white-space: nowrap;
+}
+.notice-card__more {
+  margin-top: auto;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--c-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap var(--tr-fast), color var(--tr-fast);
+}
+.notice-card:hover .notice-card__more { color: var(--c-primary-l); gap: 8px; }
+
+/* ── Badges — pill, uppercase EN, soft depth ───── */
+.badge {
+  padding: 3px 11px;
+  font-size: 11px;
+  letter-spacing: .4px;
+  box-shadow: var(--sh-sm);
+}
+
+/* ── Notices toolbar / chips — bigger tap targets ─ */
+.notices-toolbar { margin-bottom: var(--sp-8); }
+.filter-chip { padding: 7px 16px; font-weight: 600; }
+.filter-chip.is-active { box-shadow: 0 4px 12px rgba(26,53,120,.22); }
+.notices-search {
+  padding: 9px 16px 9px 38px;
+  background: var(--c-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%238a857a' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='M15 15l-4-4'/%3E%3C/svg%3E") no-repeat 14px center;
+}
+
+/* ── Grid rhythm for notice lists ──────────────── */
+#notices-grid.grid--auto-fill,
+#home-notices-grid.grid--auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: var(--sp-6);
+}
+
+/* ── Empty state — friendlier ──────────────────── */
+.notices-empty {
+  background: var(--c-bg-sub);
+  border: 1px dashed var(--c-border);
+  border-radius: var(--r-xl);
+}
+
+/* ── Footer polish (single-source layout) ──────── */
+.footer__brand .footer__name:last-of-type { opacity: .55; }
+.footer a { transition: color var(--tr-fast); }

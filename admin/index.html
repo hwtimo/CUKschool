@@ -3,11 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>공지사항 관리 — CUK School</title>
+  <meta name="robots" content="noindex,nofollow">
+  <title>관리자 · CUK School</title>
   <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
+  <style>
+    :root { --navy:#1a3578; --navy-l:#2a4a9a; --navy-d:#0f2050; --gold:#d4a843; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif; }
+
+    /* ── Branded loading / login backdrop ─────────── */
+    #cuk-splash {
+      position: fixed; inset: 0; z-index: 99999;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 22px; text-align: center;
+      background: radial-gradient(1200px 600px at 50% -10%, var(--navy-l), var(--navy) 55%, var(--navy-d));
+      color: #fff;
+      transition: opacity .45s ease, visibility .45s ease;
+    }
+    #cuk-splash.is-hidden { opacity: 0; visibility: hidden; }
+    #cuk-splash .logo {
+      width: 190px; max-width: 60vw; height: auto;
+      filter: drop-shadow(0 8px 26px rgba(0,0,0,.35));
+    }
+    #cuk-splash .title { font-size: 20px; font-weight: 700; letter-spacing: -.2px; }
+    #cuk-splash .subtitle { font-size: 13px; opacity: .7; margin-top: -12px; letter-spacing: .3px; }
+    #cuk-splash .hint { font-size: 12px; opacity: .6; }
+    .spinner {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 3px solid rgba(255,255,255,.22);
+      border-top-color: var(--gold);
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Best-effort theming of Decap's login card ── */
+    [class*="Login"] button,
+    [class*="login"] button {
+      background: var(--navy) !important;
+      border-color: var(--navy) !important;
+      font-weight: 600 !important;
+      letter-spacing: .2px;
+    }
+    [class*="Login"] button:hover,
+    [class*="login"] button:hover { background: var(--navy-l) !important; }
+  </style>
 </head>
 <body>
+  <!-- Branded splash: covers the blank flash while Decap CMS downloads,
+       then fades out to reveal the (logo-branded) login card. -->
+  <div id="cuk-splash" role="status" aria-live="polite">
+    <img class="logo" src="/logo.png" alt="Canada Unity Korean School">
+    <div>
+      <div class="title">관리자 페이지</div>
+      <div class="subtitle">Admin · Canada Unity Korean School</div>
+    </div>
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="hint">불러오는 중입니다 · Loading…</div>
+  </div>
+
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.7.0/dist/decap-cms.js"></script>
+  <script>
+    (function () {
+      var splash = document.getElementById('cuk-splash');
+      function hideSplash() { if (splash) splash.classList.add('is-hidden'); }
+      function mounted() {
+        var r = document.getElementById('nc-root');
+        return r && r.children.length;
+      }
+      // Reveal as soon as Decap CMS has mounted its UI (login card or dashboard).
+      var tries = 0;
+      var iv = setInterval(function () {
+        if (mounted()) { hideSplash(); clearInterval(iv); return; }
+        if (++tries > 60) {  // ~9s: Decap never mounted → show a refresh hint
+          clearInterval(iv);
+          var hint = splash && splash.querySelector('.hint');
+          if (hint) hint.innerHTML =
+            '관리자 도구를 불러오지 못했습니다. 새로고침 해주세요.<br>Could not load — please refresh.';
+          var sp = splash && splash.querySelector('.spinner');
+          if (sp) sp.style.display = 'none';
+        }
+      }, 150);
+    })();
+  </script>
 </body>
 </html>

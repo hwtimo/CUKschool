@@ -34,6 +34,11 @@ const i18n = (() => {
     "nav.notices":        { ko: "공지사항",        en: "Notices" },
     "nav.contact":        { ko: "연락처",          en: "Contact" },
 
+    // ── Footer ──────────────────────────────────────
+    "footer.links":       { ko: "바로가기",        en: "Links" },
+    "footer.contact":     { ko: "연락처",          en: "Contact" },
+    "footer.admin":       { ko: "관리자",          en: "Admin" },
+
     // ── Hero ────────────────────────────────────────
     "hero.subtitle":      { ko: "랭리 캠퍼스", en: "Langley Campus" },
     "hero.tagline":       { ko: "\"한국의 말, 문화, 역사와 함께 가자!!\"", en: "\"Preserving Korean Language, Culture & History Together\"" },

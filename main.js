@@ -246,19 +246,24 @@
       <article class="notice-card reveal" data-notice-id="${n.id}" role="button" tabindex="0" aria-label="${n.titleKo}">
         ${imgHTML}
         <div class="notice-card__body">
-          <span class="badge badge--${n.badge}">
-            <span class="i18n-ko">${n.badgeKo}</span>
-            <span class="i18n-en">${n.badgeEn}</span>
-          </span>
+          <div class="notice-card__meta">
+            <span class="badge badge--${n.badge}">
+              <span class="i18n-ko">${n.badgeKo}</span>
+              <span class="i18n-en">${n.badgeEn}</span>
+            </span>
+            <span class="notice-card__date">${n.date}</span>
+          </div>
           <h4>
             <span class="i18n-ko">${n.titleKo}</span>
             <span class="i18n-en">${n.titleEn}</span>
           </h4>
           <p>
-            <span class="i18n-ko">${n.summaryKo}</span>
-            <span class="i18n-en">${n.summaryEn}</span>
+            <span class="i18n-ko">${n.summaryKo || ''}</span>
+            <span class="i18n-en">${n.summaryEn || ''}</span>
           </p>
-          <span class="notice-card__date">${n.date}</span>
+          <span class="notice-card__more">
+            <span class="i18n-ko">자세히 보기</span><span class="i18n-en">Read more</span> →
+          </span>
         </div>
       </article>`;
   }
@@ -306,6 +311,7 @@
     modal.querySelector('#modalDate').textContent = notice.date;
     modal.querySelector('#modalDetail').innerHTML = lang === 'ko' ? notice.detailKo : notice.detailEn;
 
+    modal._currentNoticeId = notice.id;
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
     modal.querySelector('.notice-modal__close').focus();
@@ -350,6 +356,25 @@
           const notice = noticesData.find(n => n.id === noticeId);
           if (notice) openModal(modal, notice);
         }
+      }
+    });
+  }
+
+  /* ── Active Nav Highlight (derived from URL) ───── */
+  function initActiveNav() {
+    const file = (location.pathname.split('/').pop() || 'index.html');
+    const slug = file.replace(/\.html$/, '') || 'index';
+    const groups = {
+      about:   ['programs', 'teachers', 'schedule', 'gallery'],
+      classes: ['danbi', 'hanbyul', 'gaon', 'goeup']
+    };
+    document.querySelectorAll('[data-nav]').forEach((el) => {
+      if (el.dataset.nav === slug) el.classList.add('is-active');
+    });
+    Object.keys(groups).forEach((key) => {
+      if (groups[key].includes(slug)) {
+        const trigger = document.querySelector(`.dropdown-trigger[data-nav="${key}"]`);
+        if (trigger) trigger.classList.add('is-active');
       }
     });
   }
@@ -605,6 +630,7 @@
   /* ── Init ───────────────────────────────────────── */
   document.addEventListener("DOMContentLoaded", () => {
     initLang();
+    initActiveNav();
     initNav();
     initNotices();
     initGallery();
