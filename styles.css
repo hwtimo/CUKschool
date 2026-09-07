@@ -344,6 +344,8 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--f-display); line-height: var(--lh-tight);
 .page-header--danbi  { background: linear-gradient(135deg, #e67e22, #f39c12); }
 .page-header--hanbyul { background: linear-gradient(135deg, #2980b9, #6c5ce7); }
 .page-header--gaon   { background: linear-gradient(135deg, #00b894, #00cec9); }
+.page-header--saebyeol { background: linear-gradient(135deg, #d1497f, #f0798f); }
+.page-header--raon   { background: linear-gradient(135deg, #4f9c36, #8ac44f); }
 
 /* ═══════════════════════════════════════════════
    CARDS
@@ -382,10 +384,12 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--f-display); line-height: var(--lh-tight);
   color: var(--c-text);
 }
 .program-card:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
-.program-card--danbi   { border-top-color: #c97a2b; }
-.program-card--hanbyul { border-top-color: #3a73c4; }
-.program-card--gaon    { border-top-color: #1d8f7a; }
-.program-card--goeup   { border-top-color: #7a4ea8; }
+.program-card--danbi    { border-top-color: #c97a2b; }
+.program-card--saebyeol { border-top-color: #c2557f; }
+.program-card--hanbyul  { border-top-color: #3a73c4; }
+.program-card--raon     { border-top-color: #4e8f3a; }
+.program-card--gaon     { border-top-color: #1d8f7a; }
+.program-card--goeup    { border-top-color: #7a4ea8; }
 .program-card__name {
   font-family: var(--f-display);
   font-size: var(--fs-xl); font-weight: 700;
@@ -776,6 +780,8 @@ tbody tr:hover { background: var(--c-bg-sub); }
 .reveal-delay-1 { transition-delay: .1s; }
 .reveal-delay-2 { transition-delay: .2s; }
 .reveal-delay-3 { transition-delay: .3s; }
+.reveal-delay-4 { transition-delay: .4s; }
+.reveal-delay-5 { transition-delay: .5s; }
 
 /* ═══════════════════════════════════════════════
    RESPONSIVE — TABLET (≤960px)

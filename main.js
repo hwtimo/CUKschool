@@ -366,7 +366,7 @@
     const slug = file.replace(/\.html$/, '') || 'index';
     const groups = {
       about:   ['programs', 'teachers', 'schedule', 'gallery'],
-      classes: ['danbi', 'hanbyul', 'gaon', 'goeup']
+      classes: ['danbi', 'saebyeol', 'hanbyul', 'raon', 'gaon', 'goeup']
     };
     document.querySelectorAll('[data-nav]').forEach((el) => {
       if (el.dataset.nav === slug) el.classList.add('is-active');
